@@ -1,4 +1,4 @@
-package com.factaxis.easymaterialdesign
+package com.easygautam.easymaterialdesignsample
 
 import org.junit.Test
 

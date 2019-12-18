@@ -1,0 +1,76 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+ext {
+    bintrayRepo = 'easy-material-design'
+    bintrayName = 'com.easygautam.easymaterialdesign'
+
+    publishedGroupId = 'com.easygautam'
+    libraryName = 'easy-material-design'
+    artifact = 'easy-material-design'
+
+    libraryDescription = 'Make easy design with google material'
+
+    siteUrl = 'https://github.com/easygautam/easy-material-design'
+    gitUrl = 'https://github.com/easygautam/easy-material-design.git'
+
+    libraryVersion = '0.1.0'
+
+    developerId = 'easygautam'
+    developerName = 'Gautam Singh'
+    developerEmail = 'gautam90055@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.1"
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName this.libraryVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+    implementation 'com.google.android.material:material:1.2.0-alpha02'
+}
+
+apply from: 'https://raw.githubusercontent.com/LissF/JCenter/master/script.gradle'

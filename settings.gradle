@@ -1,0 +1,2 @@
+include ':app', ':easy-material-design'
+rootProject.name='Easy-Material-Design'
